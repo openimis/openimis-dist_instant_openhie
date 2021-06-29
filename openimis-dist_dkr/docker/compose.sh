@@ -11,7 +11,6 @@ export DB_HOST=database
 if [ "$1" == "init" ]; then
     # execute other setup scripts or commands here
     # ...
-    echo $composeFilePath
     docker-compose -f "$composeFilePath"/docker-compose.yml -f "$composeFilePath"/docker-compose.config.yml up -d
 elif [ "$1" == "up" ]; then
     docker-compose -f "$composeFilePath"/docker-compose.yml -f "$composeFilePath"/docker-compose.config.yml up -d

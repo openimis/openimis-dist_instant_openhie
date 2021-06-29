@@ -41,8 +41,8 @@ services:
     ## OPTION:
     ## if you want to ensure the (demo) db is started prior to backend,
     ## simply add the following dependency
-    # depends_on:
-    #   - db
+    ##depends_on:
+     ## - openimis_db
   rabbitmq:
     container_name: openimis-rabbitmq
     # 3-management is the 3.x version including the admin interface. For a barebones image, use 3-alpine
@@ -93,17 +93,20 @@ services:
     ##depends_on:
      ## - docker_openimis_db
   frontend:
-    platform: linux
     container_name: openimis-frontend
     build: 
       context: https://github.com/openimis/openimis-fe_js.git#main:/
+    mem_limit: 6GB
     command: serve -s build
     environment:
       - REACT_APP_API_URL=/iapi
       - NEW_OPENIMIS_HOST=${NEW_OPENIMIS_HOST}
       - LEGACY_OPENIMIS_HOST=${LEGACY_OPENIMIS_HOST}
+    restart: always
     networks:
       - instant_default
+    logging:
+      driver: "json-file"
 #    volumes:
 #      - ../conf:/conf
     ## WARNING:
@@ -116,6 +119,7 @@ services:
     container_name: openimis-gateway
     build:
       context: https://github.com/openimis/openimis-gateway_dkr.git#main:/
+      shm_size: '4gb'
     environment:
       - NEW_OPENIMIS_HOST=${NEW_OPENIMIS_HOST}
       - LEGACY_OPENIMIS_HOST=${LEGACY_OPENIMIS_HOST}
@@ -124,9 +128,13 @@ services:
     networks:
       - instant_default
     ports:
-      - 80:80
-      - 443:443
+      - 1200:80
+      - 1300:443
     depends_on:
       - backend
       - ibackend
       - frontend
+networks:
+  instant_default:
+    external:
+      name: instant_default
