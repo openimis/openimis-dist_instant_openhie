@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  openimis_db:
+    build:
+      context: https://github.com/openimis/openimis-db_dkr.git#master:/
+      args:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=imis
+        - SQL_SCRIPT_URL=https://raw.githubusercontent.com/openimis/database_ms_sqlserver/main/Empty%20databases/openIMIS_ONLINE.sql
+    container_name: openimis_db
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=imis
+        - SQL_SCRIPT_URL=https://raw.githubusercontent.com/openimis/database_ms_sqlserver/main/Empty%20databases/openIMIS_ONLINE.sql
+        - DB_NAME=imis
+        - DB_USER=sa
+    ##volumes:
+    ##  - "./sqls/mysql:/docker-entrypoint-initdb.d"
+        ## WARNING:
+    ## exposing the database port outside the openimis-net network
+    ## may lead to security issue (depending on your network topology)
+    ports:
+     - 1433:1433
+    networks:
+     - instant_default
+networks:
+  instant_default:
+    external:
+      name: instant_default
+

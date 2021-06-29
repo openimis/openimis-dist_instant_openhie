@@ -1,0 +1,6 @@
+version: '2.4'
+
+networks:
+  instant_default:
+    external:
+      name: instant_default
