@@ -6,12 +6,12 @@ services:
       context: https://github.com/openimis/openimis-db_dkr.git#master:/
       args:
         - ACCEPT_EULA=Y
-        - SA_PASSWORD=imis
+        - SA_PASSWORD=Imisimis!
         - SQL_SCRIPT_URL=https://raw.githubusercontent.com/openimis/database_ms_sqlserver/main/Empty%20databases/openIMIS_ONLINE.sql
     container_name: openimis_db
     environment:
         - ACCEPT_EULA=Y
-        - SA_PASSWORD=imis
+        - SA_PASSWORD=Imisimis!
         - SQL_SCRIPT_URL=https://raw.githubusercontent.com/openimis/database_ms_sqlserver/main/Empty%20databases/openIMIS_ONLINE.sql
         - DB_NAME=imis
         - DB_USER=sa

@@ -1,12 +1,5 @@
 version: '3.3'
 
-services:
-  db-configurator:      
-    build: ./importer/
-    depends_on:
-      - openimis_db
-    networks:
-      - instant_default
 networks:
   instant_default:
     external:
