@@ -1,0 +1,8 @@
+{
+  "id": "openimis-dist_dkr",
+  "name": "openIMIS service",
+  "description": "",
+  "type": "infrastructure",
+  "version": "v0.0.0",
+  "dependencies": ["openimis-db_dkr"]
+}
