@@ -2,7 +2,7 @@ composeFilePath=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 export DB_PORT=1433
 export DB_NAME=imis
 export DB_USER=sa
-export DB_PASSWORD=imis
+export DB_PASSWORD=Imisimis!
 export NEW_OPENIMIS_HOST=openimis-hapi.swisstph-mis.ch
 export LEGACY_OPENIMIS_HOST=frontend
 export DB_SQL_SCRIPT=https://github.com/openimis/database_ms_sqlserver/blob/master/Demo%20database/openIMIS_demo_ONLINE.sql?raw=true
