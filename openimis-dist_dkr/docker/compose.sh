@@ -11,6 +11,7 @@ export DB_HOST=openimis_db
 export BE_BRANCH=develop
 export FE_BRANCH=develop
 export GW_BRANCH=develop
+export OPENIMIS_CONF_JSON="`cat "$composeFilePath"/openimis.json`"
 if [ "$1" == "init" ]; then
     # execute other setup scripts or commands here
     # ...

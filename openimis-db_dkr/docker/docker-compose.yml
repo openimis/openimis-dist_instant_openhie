@@ -3,7 +3,7 @@ version: '3.3'
 services:
   openimis_db:
     build:
-      context: https://github.com/openimis/openimis-db_dkr.git#master:/
+      context: https://github.com/openimis/openimis-db_dkr.git#main:/
       args:
         - ACCEPT_EULA=Y
         - SA_PASSWORD=Imisimis!
