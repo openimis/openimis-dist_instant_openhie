@@ -119,7 +119,7 @@ services:
       db:
         condition: service_healthy
     networks:
-      
+      - instant_default
 networks:
   instant_default:
     external:
