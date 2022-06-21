@@ -1,7 +1,0 @@
-version: '3.3'
-
-networks:
-  instant_default:
-    external:
-      name: instant_default
-

@@ -35,7 +35,6 @@ echo
 if [[ $ACTION = "init" ]]
 then 
   echo "Delete a pre-existing instant volume..."
-
   docker volume rm instant
 fi
 
