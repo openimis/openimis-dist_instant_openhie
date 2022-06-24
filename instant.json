@@ -1,0 +1,7 @@
+{
+  "id": "openimis",
+  "name": "openIMIS service",
+  "description": "",
+  "type": "infrastructure",
+  "version": "v1.0.0"
+}
